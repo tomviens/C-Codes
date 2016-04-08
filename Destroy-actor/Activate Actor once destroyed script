@@ -1,0 +1,23 @@
+using UnityEngine;
+using System.Collections;
+
+public class Flashlight : MonoBehaviour
+{
+    public GameObject flashlight;
+    public GameObject on;
+
+    // Use this for initialization
+    void Start()
+    {
+        on.SetActive(false);
+
+    }
+    void OnTriggerEnter (Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(flashlight);
+            on.SetActive(true);
+        }
+    }
+}
